@@ -1,4 +1,3 @@
-
 import os.path
 
 CONF_ROOT = os.path.dirname(__file__)
@@ -18,6 +17,9 @@ DATABASES = {
         'PASSWORD': 'sentry',
         'HOST': '127.0.0.1',
         'PORT': '',
+        'OPTIONS': {
+            'autocommit': True,
+        }
     }
 }
 
@@ -25,10 +27,10 @@ DATABASES = {
 # the CACHES and Redis settings
 
 CACHES = {
-     'default': {
-         'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
-         'LOCATION': ['127.0.0.1:11211'],
-     }
+    'default': {
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+        'LOCATION': ['127.0.0.1:11211'],
+    }
 }
 
 # Buffers (combined with queueing) act as an intermediate layer between the database and
@@ -51,11 +53,11 @@ CACHES = {
 # }
 
 
-SENTRY_KEY = '{{secret_key}}'
+SENTRY_KEY = '{{ secret_key }}'
 
 # You should configure the absolute URI to Sentry. It will attempt to guess it if you don't
 # but proxies may interfere with this.
-SENTRY_URL_PREFIX = '{{root_url}}'  # No trailing slash!
+SENTRY_URL_PREFIX = '{{ root_url }}'  # No trailing slash!
 
 SENTRY_WEB_HOST = '127.0.0.1'
 SENTRY_WEB_PORT = 9000
@@ -70,8 +72,8 @@ SENTRY_WEB_OPTIONS = {
 #  https://docs.djangoproject.com/en/1.3/topics/email/?from=olddocs#e-mail-backends
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-SERVER_EMAIL = '{{server_email}}'
-EMAIL_HOST = '{{smtp_server}}'
+SERVER_EMAIL = '{{ server_email }}'
+EMAIL_HOST = '{{ smtp_server }}'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_HOST_USER = ''
 EMAIL_PORT = 25
