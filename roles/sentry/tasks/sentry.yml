@@ -10,14 +10,14 @@
 - name: Migrate sentry db
   shell: "{{ virtualenv }}/bin/sentry --config={{ sentry_conf_file }} upgrade --noinput"
 
-- name: Install nginx conf
+- name: Remove default nginx conf
   sudo_user: root
-  template: src=nginx-site.j2 dest=/etc/nginx/conf.d/sentry.conf
-  notify: restart nginx
+  file: path=/etc/nginx/sites-enabled/default state=absent
 
-- name: Check nginx is running
-  sudo_user: ubuntu
-  service: name=nginx state=started
+- name: Install sentry nginx conf
+  sudo_user: root
+  template: src=nginx-site.j2 dest=/etc/nginx/sites-enabled/sentry
+  notify: restart nginx
 
 - name: Install supervisor conf
   sudo_user: root
