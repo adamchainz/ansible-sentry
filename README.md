@@ -1,14 +1,12 @@
 # Overview
 
-This is an ansible playbook for deploying [Sentry](http://getsentry.com ) on a local target. It assumes Ubuntu running on the target.
+This is an ansible playbook for deploying [Sentry](http://getsentry.com ) on
+Ubuntu 14.04.
 
 # Usage
 
-First, generate your vars and inventory files:
+Change the vars file (roles/sentry/vars/main.yml) as appropriate, create an
+inventory file, then run:
 
-	python ./autogen.py --smtp-server=yoursmtp.server.com --server-email=noreply@somedomain.com --target=myserver.com --root-url=http://myserver.com
-
-And then run ansible:
-
-	ansible-playbook -u root -i inventory deploy.yml
+	ansible-playbook -i your.inventory deploy.yml
 
