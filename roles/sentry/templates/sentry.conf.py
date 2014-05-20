@@ -53,11 +53,11 @@ CACHES = {
 # }
 
 
-SENTRY_KEY = '{{ secret_key }}'
+SENTRY_KEY = '{{ sentry_key }}'
 
 # You should configure the absolute URI to Sentry. It will attempt to guess it if you don't
 # but proxies may interfere with this.
-SENTRY_URL_PREFIX = '{{ root_url }}'  # No trailing slash!
+SENTRY_URL_PREFIX = '{{ sentry_url_prefix }}'  # No trailing slash!
 
 SENTRY_WEB_HOST = '127.0.0.1'
 SENTRY_WEB_PORT = 9000
@@ -73,9 +73,9 @@ SENTRY_WEB_OPTIONS = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 SERVER_EMAIL = '{{ server_email }}'
-EMAIL_HOST = '{{ smtp_server }}'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_HOST_USER = ''
+EMAIL_HOST = '{{ email_host }}'
+EMAIL_HOST_USER = '{{ email_host_user }}'
+EMAIL_HOST_PASSWORD = '{{ email_host_password }}'
 EMAIL_PORT = 25
 EMAIL_USE_TLS = False
 

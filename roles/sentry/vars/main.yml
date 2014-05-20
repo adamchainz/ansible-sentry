@@ -5,7 +5,9 @@ deploy_root: /opt/sentry
 virtualenv: "{{ deploy_root }}/virtualenv"
 conf_dir: "{{ deploy_root }}/conf"
 sentry_conf_file: "{{ conf_dir }}/sentry.conf.py"
-secret_key: something
-smtp_server: something.com
-root_url: http://something.com  # No trailing slash!
+sentry_key: something
+sentry_url_prefix: http://something.com  # No trailing slash!
 server_email: sentry@something.com
+email_host: something.com
+email_host_user: somebody
+email_host_password: something
